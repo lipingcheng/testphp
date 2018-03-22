@@ -1,0 +1,83 @@
+
+chmod -R 777 你定义的文件夹 给权限
+				chmod +w filename
+写的权限 ：			sudo chmod 777 -R /var/www  
+删除文件和非空文件夹:		rm -rf
+删除目录:			rmdir 删除空文件夹
+mysql 启动和关闭
+				/usr/local/mysql/bin/mysqladmin -u root -p shutdown
+				/usr/local/mysql/bin/mysqld_safe -u mysql &
+				/etc/my.cnf  mysql 配置文件信息
+				/usr/local/php/etc/php.ini  php 配置文件信息
+				/tmp   session 存储文件
+				/usr/local/mysql/bin/mysql -u root -p进去mysql命令
+启动smb：  		service smb start 
+			service nmb start
+启动apache： sta
+			/usr/local/apache2/bin/apachectl stop
+关闭apache： sto
+			/usr/local/apache2/bin/apachectl start
+赋予权限：		grant all privileges  on *.* to 'root'@'192.168.10.5' identified by '123';
+刷新权限：		flush privileges;
+删除权限：		revoke all on [database.table] from [user];
+刷新权限：		flush privileges;
+memcache后台运行的命令：/usr/local/memcache/bin/memcached –umemcache &
+memcache结束运行命令：	pkill memcached
+启动redis:  		 cd /redis-3.2.9/src
+			./redis-service ../redis.conf
+			./redis-cli
+1）String
+常用命令：set/get/decr/incr/mget等
+2）Hash
+常用命令：hget/hset/hgetall等	
+3）List
+常用命令：lpush/rpush/lpop/rpop/lrange等
+4）Set
+常用命令：sadd/spop/smembers/sunion等
+5）Sorted Set
+常用命令：zadd/zrange/zrem/zcard等；	
+apache 启动和关闭
+/usr/local/apache2/bin/apachectl start
+/usr/local/apache2/bin/apachectl stop
+chmod -R 777 你定义的文件夹 给权限
+chmod +w filename
+sudo chmod 777 -R /var/www  写的权限
+删除文件和非空文件夹:rm -rf
+删除目录:rmdir 删除空文件夹
+mysql 启动和关闭
+service mysqld stop
+service mysqld start
+mysqladmin -u root -p shutdown
+mysqld_safe -u mysql &
+进入mysql数据库：	/usr/local/mysql/bin/mysql -u root -p
+/usr/local/mysql/bin/mysqladmin -u root -p shutdown 
+/etc/my.cnf  mysql 配置文件信息
+/usr/local/php/etc/php.ini  php 配置文件信息
+/tmp   session 存储文件
+
+主数据库：
+ vi /etc/my.cnf
+/usr/local/mysql/bin/mysql -u root -p
+ GRANT REPLICATION SLAVE on *.* to 'slaver'@'%' identified by '123';
+show master status  //查看当前主服务器信息
+
+
+从数据库：
+	vi /etc/my.cnf
+		[mysqld]  server -id =2   重启mysql
+	进入mysql  /usr/local/mysql/bin/mysql -u root -p
+		change master to master_host='112.214.186.197',master_user='slaver',master_password='123',master_log_file='mysqlbin.000003',master_log_pos=107;
+	start slave;
+	
+
+
+
+
+
+
+
+
+
+
+
+
